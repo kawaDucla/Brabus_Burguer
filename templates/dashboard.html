@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <h1>Painel Administrativo</h1>
+
+    <hr>
+
+    <h2>Adicionar Produto</h2>
+
+    <form action="/adicionar-produto" method="POST">
+
+        <input
+            type="text"
+            name="nome"
+            placeholder="Nome do produto"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            name="descricao"
+            placeholder="Descrição"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="number"
+            step="0.01"
+            name="preco"
+            placeholder="Preço"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            name="imagem"
+            placeholder="URL da imagem"
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            name="categoria"
+            placeholder="Categoria"
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Adicionar Produto
+        </button>
+
+    </form>
+
+    <hr>
+
+    <h2>Produtos cadastrados</h2>
+
+    {% for produto in produtos %}
+
+        <div>
+
+            <h3>{{ produto.nome }}</h3>
+
+            <p>{{ produto.descricao }}</p>
+
+            <strong>
+                R$ {{ produto.preco }}
+            </strong>
+
+            <hr>
+
+        </div>
+
+    {% endfor %}
+
+</body>
+</html>
