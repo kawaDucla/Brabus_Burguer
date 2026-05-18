@@ -1,0 +1,19 @@
+<h1>📦 Pedidos</h1>
+
+{% for p in pedidos %}
+<div class="card">
+    <p><strong>ID:</strong> {{ p.id }}</p>
+    <p><strong>Total:</strong> R$ {{ p.total }}</p>
+    <p><strong>Status:</strong> {{ p.status }}</p>
+
+    <form method="POST" action="/admin/pedidos/atualizar/{{ p.id }}">
+        <select name="status">
+            <option>recebido</option>
+            <option>preparando</option>
+            <option>pronto</option>
+            <option>entregue</option>
+        </select>
+        <button>Atualizar</button>
+    </form>
+</div>
+{% endfor %}

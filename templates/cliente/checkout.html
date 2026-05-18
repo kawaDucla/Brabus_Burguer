@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h2>💳 Checkout</h2>
+</header>
+
+<div class="container">
+
+<form method="POST" action="/finalizar">
+
+    <div class="card">
+        <label>Forma de pagamento:</label>
+        <select name="pagamento">
+            <option value="balcao">Pagar no balcão</option>
+            <option value="online">Pagamento online</option>
+        </select>
+    </div>
+
+    <button type="submit">Confirmar Pedido</button>
+
+</form>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</html>

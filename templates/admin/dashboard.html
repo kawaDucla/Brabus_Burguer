@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>🍔 Admin</h2>
+    <a href="/admin">Dashboard</a>
+    <a href="/admin/produtos">Produtos</a>
+    <a href="/admin/pedidos">Pedidos</a>
+</div>
+
+<div class="main">
+
+<h1>📊 Dashboard</h1>
+
+<div class="cards">
+    <div class="card">
+        <h3>💰 Faturamento</h3>
+        <p>R$ {{ faturamento }}</p>
+    </div>
+
+    <div class="card">
+        <h3>📦 Pedidos</h3>
+        <p>{{ pedidos|length }}</p>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

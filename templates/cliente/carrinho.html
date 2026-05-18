@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h2>🛒 Carrinho</h2>
+    <button class="switch" onclick="toggleTheme()">🌙 Tema</button>
+</header>
+
+<div class="container">
+
+{% for p in produtos %}
+    <div class="card">
+        <span>{{ p.nome }}</span>
+        <strong>R$ {{ p.preco }}</strong>
+    </div>
+{% endfor %}
+
+<a href="/checkout">
+    <button>Finalizar Pedido</button>
+</a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</html>

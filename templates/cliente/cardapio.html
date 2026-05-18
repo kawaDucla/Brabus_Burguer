@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kawa Burger</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h2>🍔 Kawa Burger</h2>
+
+        <div>
+            <a href="/carrinho" style="color:white;">🛒 Carrinho</a>
+            <button class="switch" onclick="toggleTheme()">🌙 Tema</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h3>🍟 Cardápio</h3>
+
+        {% for p in produtos %}
+        <div class="card">
+            <div>
+                <h4>{{ p.nome }}</h4>
+                <p>{{ p.descricao }}</p>
+                <strong>R$ {{ p.preco }}</strong>
+            </div>
+
+            <a href="/add/{{ p.id }}">
+                <button>Adicionar</button>
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+    <!-- BOTÃO CARRINHO -->
+    <button onclick="openCart()" class="cart-btn">🛒 Carrinho</button>
+
+    <!-- OVERLAY -->
+    <div id="cart" class="cart">
+        <div class="cart-header">
+            <h2>Seu Carrinho</h2>
+            <button onclick="closeCart()">X</button>
+        </div>
+
+        <div class="cart-body">
+            {% for p in produtos %}
+            {% if carrinho and carrinho.get(p.id|string) %}
+            <div class="cart-item">
+                <p>{{ p.nome }}</p>
+                <span>R$ {{ p.preco }}</span>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+            <hr>
+            <p>Total: R$ {{ total }}</p>
+
+            <a href="/checkout">
+                <button>Finalizar</button>
+            </a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    ...
+
+<script>
+function openCart() {
+    document.getElementById("cart").classList.add("open");
+}
+
+function closeCart() {
+    document.getElementById("cart").classList.remove("open");
+}
+</script>
+
+</body>
+</html>
+</body>
+
+</html>
